@@ -27,4 +27,9 @@ class ProductModel {
 
   factory ProductModel.fromJson(String source) =>
       const ProductModel(id: 'id', title: 'title');
+
+  @override
+  String toString() {
+    return 'ProductModel{id: $id, title: $title}';
+  }
 }
