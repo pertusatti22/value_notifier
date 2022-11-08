@@ -16,9 +16,12 @@ class _MyHomePageState extends State<MyHomePage> {
 
   int get _counter => controller.counter;
 
-  void _incrementCounter() {
-    setState(() {
-      controller.increment();
+  @override
+  void initState() {
+    super.initState();
+
+    controller.addListener(() {
+      setState(() {});
     });
   }
 
@@ -46,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: _incrementCounter,
+        onPressed: controller.increment,
         tooltip: 'Increment',
         child: const Icon(Icons.add),
       ),
