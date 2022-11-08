@@ -15,14 +15,6 @@ class _MyHomePageState extends State<MyHomePage> {
   final counter = Counter();
 
   @override
-  void initState() {
-    super.initState();
-    counter.addListener(() {
-      setState(() {});
-    });
-  }
-
-  @override
   Widget build(BuildContext context) {
     //
     return Scaffold(
@@ -38,10 +30,14 @@ class _MyHomePageState extends State<MyHomePage> {
             const Text(
               'You have pushed the button this many times:',
             ),
-            Text(
-              '${counter.value}',
-              style: Theme.of(context).textTheme.headline4,
-            ),
+            AnimatedBuilder(
+                animation: counter,
+                builder: (context, child) {
+                  return Text(
+                    '${counter.value}',
+                    style: Theme.of(context).textTheme.headline4,
+                  );
+                })
           ],
         ),
       ),
