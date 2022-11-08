@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class HomeController {
-  var counter$ = ValueNotifier(0);
+class Counter extends ValueNotifier<int> {
+  Counter() : super(0);
 
-  int get counter => counter$.value;
+  increment() => value++;
 
-  void increment() => counter$.value++;
+  decrement() => value--;
 }
