@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'home_controller.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});
 
@@ -10,11 +12,13 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  int _counter = 0;
+  final controller = HomeController();
+
+  int get _counter => controller.counter;
 
   void _incrementCounter() {
     setState(() {
-      _counter++;
+      controller.increment();
     });
   }
 
